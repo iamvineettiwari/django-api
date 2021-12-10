@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+from app import recipe
 
 from core import models
 
@@ -63,3 +64,15 @@ class ModelTests(TestCase) :
         })
 
         self.assertEqual(str(ingredient), ingredient.name)
+
+    def test_recipie_str(self):
+        "Test the recipe string representation"
+
+        recipie = models.Recipe.objects.create(**{
+            "user": sample_user(),
+            "title": "Steak and mushroom sauce",
+            "time_minutes": 5,
+            "price": 5.00
+        })
+
+        self.assertEqual(str(recipie), recipie.title)
