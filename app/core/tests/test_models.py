@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-from app import recipe
+from core import models
 
 from core import models
 
